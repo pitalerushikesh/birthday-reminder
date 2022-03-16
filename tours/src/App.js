@@ -6,6 +6,7 @@ import {
   Typography,
   CardMedia,
   Button,
+  Divider,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
@@ -117,18 +118,27 @@ function App() {
         alignItems: "center",
       }}
     >
-      <Typography
-        textAlign="center"
-        fontSize="2.5rem"
-        fontWeight="bold"
-        fontFamily="Ubuntu"
+      <Box
         sx={{
           my: 5,
-          borderBottom: "5px solid #000",
         }}
       >
-        Our Tours
-      </Typography>
+        <Typography
+          textAlign="center"
+          fontSize="2.5rem"
+          fontWeight="bold"
+          fontFamily="Ubuntu"
+        >
+          Our Tours
+        </Typography>
+        <Divider
+          sx={{
+            borderBottomWidth: 5,
+            borderBottomColor: "#49adef",
+            mx: 5,
+          }}
+        />
+      </Box>
       {tour.length === 0 ? (
         <Button
           variant="contained"
