@@ -1,0 +1,19 @@
+body{
+    background-color: #f1f5f8;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+
+
+.text{
+    display: inline;
+    width: 100%;
+}
+
+.read-or-hide{
+    color: rgb(192,192,192);
+    cursor: pointer;
+}
