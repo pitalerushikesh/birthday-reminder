@@ -6,10 +6,11 @@ import {
   Typography,
   CardMedia,
   Button,
-  Divider,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/system";
+import data from "./data/tour.json";
+import Loading from "./first/Loading";
 
 const ReadMore = ({ children }) => {
   const text = children;
@@ -33,10 +34,10 @@ const ReadMore = ({ children }) => {
   );
 };
 
-export const TourCard = () => {
+const TourCard = ({ img, title, price, desc, onDelete }) => {
   return (
-    <Card sx={{ maxWidth: 500, minHeight: 430 }}>
-      <CardMedia component="img" height="250" image={img} alt="paris" />
+    <Card sx={{ maxWidth: 500, minHeight: 430, mb: 3 }}>
+      <CardMedia component="img" height="230" image={img} alt="paris" />
       <CardContent>
         <Box
           sx={{
@@ -83,6 +84,7 @@ export const TourCard = () => {
             py: 0,
             px: 5,
           }}
+          onClick={onDelete}
         >
           Not Interested
         </Button>
@@ -92,8 +94,29 @@ export const TourCard = () => {
 };
 
 function App() {
-  return (
-    <div>
+  const [tour, setTour] = useState(data.tour);
+  const [loading, setLoading] = useState(true);
+  const deleteTour = (id) => {
+    console.log(id);
+    setTour(tour.filter((tour) => tour.id !== id));
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  return loading ? (
+    <Loading />
+  ) : (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Typography
         textAlign="center"
         fontSize="2.5rem"
@@ -106,8 +129,38 @@ function App() {
       >
         Our Tours
       </Typography>
-
-      <TourCard />
+      {tour.length === 0 ? (
+        <Button
+          variant="contained"
+          sx={{
+            textTransform: "none",
+            borderColor: "#bb2525", // border color for button
+            py: 0,
+            px: 5,
+            width: "50%",
+          }}
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          Refresh
+        </Button>
+      ) : (
+        <>
+          {tour.map((tour) => {
+            return (
+              <TourCard
+                key={tour.id}
+                title={tour.title}
+                price={tour.price}
+                img={tour.img}
+                desc={tour.desc}
+                onDelete={() => deleteTour(tour.id)}
+              />
+            );
+          })}
+        </>
+      )}
     </div>
   );
 }
