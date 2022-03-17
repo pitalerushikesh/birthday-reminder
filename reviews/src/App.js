@@ -68,7 +68,8 @@ function App() {
       <Header />
       <Card
         sx={{
-          width: "50%",
+          width: "40%",
+          minWidth: "500px",
         }}
       >
         <CardContent
@@ -125,6 +126,7 @@ function App() {
           <Typography
             sx={{
               color: "#49adef",
+              textTransform: "uppercase",
             }}
           >
             {people[index].role}
