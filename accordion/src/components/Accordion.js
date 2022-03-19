@@ -34,12 +34,12 @@ const MuiAccordion = ({ ques, ans }) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography fontWeight="bold" fontFamily="Roboto">
+          <Typography fontWeight="bold" fontFamily="Roboto" fontSize="0.8rem">
             {ques}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>{ans}</Typography>
+          <Typography fontSize="0.8rem">{ans}</Typography>
         </AccordionDetails>
       </Accordion>
     </>
