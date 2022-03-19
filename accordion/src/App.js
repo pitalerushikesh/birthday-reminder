@@ -11,7 +11,7 @@ function App() {
     <Box
       sx={{
         backgroundColor: "#ffffff",
-        width: "650px",
+        width: "700px",
         p: 4,
       }}
     >
