@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Tabs, Tab, Box, Typography, Grid } from "@mui/material";
+import { Tabs, Tab, Box, Typography, Grid, Button } from "@mui/material";
 import TabContent from "./TabContent";
-
+import data from "../data/experiences.json";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -24,7 +24,7 @@ function TabPanel(props) {
 
 const VerticalTabs = () => {
   const [value, setValue] = useState(0);
-
+  const items = data.tabs;
   const handleChange = (e, newValue) => {
     setValue(newValue);
   };
@@ -32,7 +32,6 @@ const VerticalTabs = () => {
   return (
     <Box
       sx={{
-        display: "flex",
         height: 224,
       }}
     >
@@ -46,23 +45,57 @@ const VerticalTabs = () => {
             aria-label="Vertical tabs example"
             //sx={{ borderRight: 1, borderColor: "divider" }}
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
+            {items.map((item) => {
+              return (
+                <Tab
+                  label={`${item.name}`}
+                  sx={{
+                    fontSize: "1.2rem",
+                    color: "#000",
+                    "&:focus": {
+                      color: "#2caeba",
+                    },
+                  }}
+                />
+              );
+            })}
           </Tabs>
         </Grid>
         <Grid item lg={10} sm={12} xs={12}>
-          <TabPanel value={value} index={0}>
-            <TabContent />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            Item Two
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
-          </TabPanel>
+          {items.map((item, index) => {
+            return (
+              <TabPanel value={value} index={index}>
+                <TabContent
+                  title={item.title}
+                  name={item.name}
+                  active={item.active}
+                  desc1={item.desc1}
+                  desc2={item.desc2}
+                  desc3={item.desc3}
+                  desc4={item.desc4}
+                />
+              </TabPanel>
+            );
+          })}
         </Grid>
       </Grid>
+      <Box justifyContent="center" alignItems="center" display="flex" pt={2}>
+        <Button
+          sx={{
+            fontWeight: "bold",
+            fontSize: "1rem",
+            backgroundColor: "#2caeba",
+            py: 0.5,
+            px: 6,
+            color: "#bff8fd",
+            "&:hover": {
+              backgroundColor: "#88ebf2",
+            },
+          }}
+        >
+          More Info
+        </Button>
+      </Box>
     </Box>
   );
 };

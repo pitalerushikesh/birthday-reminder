@@ -2,7 +2,7 @@ import { Chip, Typography, Grid } from "@mui/material";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import React from "react";
 
-const TabContent = () => {
+const TabContent = ({ title, name, active, desc1, desc2, desc3, desc4 }) => {
   return (
     <>
       <Typography
@@ -11,10 +11,10 @@ const TabContent = () => {
           mb: 2,
         }}
       >
-        Full Stack Web Developer
+        {title}
       </Typography>
       <Chip
-        label="TOMMY"
+        label={`${name}`}
         sx={{
           borderRadius: "0%",
           color: "#74b0dc",
@@ -29,39 +29,37 @@ const TabContent = () => {
           mb: 2,
         }}
       >
-        December 2015 - Present
+        {active}
       </Typography>
       <Grid container rowSpacing={3}>
         <Grid item lg={1}>
           <HiChevronDoubleRight color="#2caeba" />
         </Grid>
         <Grid item lg={11}>
-          <Typography>
-            Tote bag sartorial mlkshk air plant vinyl banjo lumbersexual poke
-            leggings offal cold-pressed brunch neutra. Hammock photo booth
-            live-edge disrupt.
-          </Typography>
+          <Typography>{desc1}</Typography>
         </Grid>
         <Grid item lg={1}>
           <HiChevronDoubleRight color="#2caeba" />
         </Grid>
         <Grid item lg={11}>
-          <Typography>
-            Tote bag sartorial mlkshk air plant vinyl banjo lumbersexual poke
-            leggings offal cold-pressed brunch neutra. Hammock photo booth
-            live-edge disrupt.
-          </Typography>
+          <Typography>{desc2}</Typography>
         </Grid>
         <Grid item lg={1}>
           <HiChevronDoubleRight color="#2caeba" />
         </Grid>
         <Grid item lg={11}>
-          <Typography>
-            Tote bag sartorial mlkshk air plant vinyl banjo lumbersexual poke
-            leggings offal cold-pressed brunch neutra. Hammock photo booth
-            live-edge disrupt.
-          </Typography>
+          <Typography>{desc3}</Typography>
         </Grid>
+        {desc4 && (
+          <Grid item lg={1}>
+            <HiChevronDoubleRight color="#2caeba" />
+          </Grid>
+        )}
+        {desc4 && (
+          <Grid item lg={11}>
+            <Typography>{desc4}</Typography>
+          </Grid>
+        )}
       </Grid>
     </>
   );
