@@ -1,12 +1,18 @@
-import { Button, Card, Chip, Typography, Container, Grid } from "@mui/material";
-import { Box } from "@mui/system";
-import React from "react";
+import { Chip, Typography, Grid } from "@mui/material";
 import { HiChevronDoubleRight } from "react-icons/hi";
+import React from "react";
 
 const TabContent = () => {
   return (
     <>
-      <Typography>Full Stack Web Developer</Typography>
+      <Typography
+        variant="h5"
+        sx={{
+          mb: 2,
+        }}
+      >
+        Full Stack Web Developer
+      </Typography>
       <Chip
         label="TOMMY"
         sx={{
@@ -14,17 +20,18 @@ const TabContent = () => {
           color: "#74b0dc",
           fontWeight: "bold",
           backgroundColor: "#dae2ec",
+          mb: 2,
         }}
       />
       <Typography
         sx={{
           color: "#617d98",
+          mb: 2,
         }}
       >
         December 2015 - Present
       </Typography>
-
-      <Grid container>
+      <Grid container rowSpacing={3}>
         <Grid item lg={1}>
           <HiChevronDoubleRight color="#2caeba" />
         </Grid>
