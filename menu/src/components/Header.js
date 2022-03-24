@@ -14,13 +14,13 @@ const Header = () => {
         fontWeight="bold"
         fontFamily="Ubuntu"
       >
-        Our Reviews
+        Our Menu
       </Typography>
       <Divider
         sx={{
           borderBottomWidth: 5,
           borderBottomColor: "#c59d5f",
-          mx: 90,
+          mx: 115,
         }}
       />
     </Box>
