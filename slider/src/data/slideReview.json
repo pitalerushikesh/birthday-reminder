@@ -1,0 +1,24 @@
+{
+    "slideReview":[
+        {
+            "id":1,
+            "name":"Peter Smith",
+            "role":"Product Designer",
+            "image":"https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959121/person-1_aufeoq.jpg",
+            "desc":"Drinking vinegar polaroid street art echo park, actually semiotics next level butcher master cleanse hammock flexitarian ethical paleo."
+        },
+        {
+            "id":2,
+            "name":"John Doe",
+            "role":"Front-end Developer",
+            "image":"https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg",
+            "desc":"Vexillologist squid 8-bit. Vaporware hashtag microdosing tilde, trust fund YOLO gastropub deep v cliche bitters enamel pin cray."
+        },{
+            "id":3,
+            "name":"Jane Vasquez",
+            "role":"The Boss",
+            "image":"https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
+            "desc":"Marfa af yr 3 wolf moon kogi, readymade distillery asymmetrical seitan kale chips fingerstache cloud bread mustache twee messenger bag."
+        }
+    ]
+}
