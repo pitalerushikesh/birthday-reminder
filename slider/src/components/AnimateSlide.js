@@ -5,13 +5,14 @@ import { FaQuoteRight } from "react-icons/fa";
 const AnimateSlide = ({ name, role, image, desc }) => {
   return (
     <Container
-      maxWidth="md"
+      maxWidth="lg"
       sx={{
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
         flexDirection: "column",
         p: 4,
+        width: "60%",
       }}
     >
       <Box
