@@ -26,7 +26,9 @@ const Header = () => {
       <Typography
         textAlign="center"
         fontSize="2.5rem"
-        fontWeight="bold"
+        sx={{
+          color: "#324d67",
+        }}
         fontFamily="Ubuntu"
       >
         Reviews
