@@ -69,6 +69,8 @@ function App() {
           sx={{
             backgroundColor: "#49a6e9",
             color: "#063251",
+            letterSpacing: "0.1rem",
+            px: 2,
           }}
         >
           Generate
