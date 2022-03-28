@@ -16,7 +16,7 @@ function App() {
   const [paras, setParas] = useState("");
   const getLormIpsum = async (e) => {
     e.preventDefault();
-    var url = `http://hipsum.co/api/?type=hipster-centric&paras=${paras}`;
+    var url = `https://hipsum.co/api/?type=hipster-centric&paras=${paras}`;
     let options = {
       method: "GET",
       url: url,
