@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, IconButton, Typography, Box } from "@mui/material";
+import { IconButton, Typography, Box } from "@mui/material";
 import { BiEdit } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 const ItemCard = ({ title, removeItem, editItem }) => {

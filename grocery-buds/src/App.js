@@ -1,10 +1,30 @@
 import "./App.css";
-import { Button, Card, CardContent, Container, TextField } from "@mui/material";
+import {
+  Alert,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  TextField,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import { Box } from "@mui/system";
 
 import ItemCard from "./components/ItemCard";
+// const Alert = ({ type, msg, removeAlert, list }) => {
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       removeAlert();
+//     }, 3000);
+//     return () => clearTimeout(timeout);
+//   }, [list, removeAlert]);
+//   return (
+//     <Alert variant="outlined" severity={type}>
+//       {msg}
+//     </Alert>
+//   );
+// };
 
 function App() {
   const [name, setName] = useState("");
@@ -110,6 +130,11 @@ function App() {
           </Box>
         </CardContent>
       </Card>
+      {alert.show && (
+        <Alert variant="outlined" severity={alert.type}>
+          {alert.message}
+        </Alert>
+      )}
       {groceryList.length > 0 && (
         <Card
           sx={{
