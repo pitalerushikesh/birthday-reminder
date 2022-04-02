@@ -5,14 +5,13 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Button, Grid, Link } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter, BsLinkedin } from "react-icons/bs";
 import { makeStyles } from "@mui/styles";
-import { useNavigate } from "react-router-dom";
 
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const useStyles = makeStyles({
