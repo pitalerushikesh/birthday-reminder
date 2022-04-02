@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import { Button, Grid, Link } from "@mui/material";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitter, BsLinkedin } from "react-icons/bs";
 import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +23,6 @@ const useStyles = makeStyles({
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const classes = useStyles();
 
@@ -41,16 +39,9 @@ const Navbar = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -70,7 +61,16 @@ const Navbar = () => {
             alignItems="center"
             display="flex"
           >
-            <Grid item lg={4} md={4} sm={4} xs={4} display="flex">
+            <Grid
+              item
+              lg={4}
+              md={4}
+              sm={4}
+              xs={4}
+              justifyContent="center"
+              alignItems="center"
+              display="flex"
+            >
               <Typography
                 variant="h6"
                 noWrap
@@ -82,6 +82,7 @@ const Navbar = () => {
                   textShadow: "0px 3px 4px  #000000",
                   lineHeight: "1.5",
                   letterSpacing: "0.5px",
+                  color: "#000000",
                 }}
               >
                 Coding
@@ -116,7 +117,7 @@ const Navbar = () => {
                   onClick={handleOpenNavMenu}
                   color="inherit"
                 >
-                  <GiHamburgerMenu />
+                  <GiHamburgerMenu color="#49a6e9" />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -279,12 +280,32 @@ const Navbar = () => {
               <Typography
                 variant="h6"
                 noWrap
-                component="div"
+                fontSize="1.7rem"
                 sx={{
+                  mr: 1,
                   display: { xs: "flex", md: "none" },
+                  textShadow: "0px 3px 4px  #000000",
+                  lineHeight: "1.5",
+                  letterSpacing: "0.5px",
+                  color: "#000000",
                 }}
               >
-                React Mini Projects
+                Coding
+              </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                fontSize="1.7rem"
+                sx={{
+                  mr: 1,
+                  display: { xs: "flex", md: "none" },
+                  textShadow: "0px 4px 3px  #000000",
+                  lineHeight: "1.5",
+                  color: "#49a6e9",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                Addict
               </Typography>
             </Grid>
             <Grid
@@ -293,10 +314,34 @@ const Navbar = () => {
               md={4}
               xs={4}
               sm={4}
-              justifyContent="right"
               alignItems="center"
+              justifyContent="center"
               display="flex"
-            ></Grid>
+            >
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
+                <BsFacebook color="#49a6e9" size="22" />
+                <BsTwitter
+                  color="#49a6e9"
+                  style={{
+                    marginRight: "1rem",
+                    marginLeft: "1rem",
+                  }}
+                  size="22"
+                />
+                <BsLinkedin
+                  style={{
+                    marginRight: "1rem",
+                  }}
+                  color="#49a6e9"
+                  size="22"
+                />
+                <AiFillInstagram color="#49a6e9" size="28" />
+              </Box>
+            </Grid>
           </Grid>
         </Toolbar>
       </Container>
