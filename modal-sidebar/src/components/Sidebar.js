@@ -12,7 +12,8 @@ import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ModalContent from "./ModalContent";
 import { GiCancel, GiHamburgerMenu } from "react-icons/gi";
-
+import { AiFillInstagram } from "react-icons/ai";
+import { BsFacebook, BsTwitter, BsLinkedin } from "react-icons/bs";
 const drawerWidth = 350;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -58,6 +59,16 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "space-between",
+}));
+
+const DrawerFooter = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: "end",
+  bottom: 0,
+  paddingLeft: 180,
+  position: "absolute",
 }));
 
 export default function Sidebar() {
@@ -161,6 +172,25 @@ export default function Sidebar() {
             </ListItem>
           ))}
         </List>
+        <DrawerFooter>
+          <BsFacebook color="#49a6e9" size="22" />
+          <BsTwitter
+            color="#49a6e9"
+            style={{
+              marginRight: "1rem",
+              marginLeft: "1rem",
+            }}
+            size="22"
+          />
+          <BsLinkedin
+            style={{
+              marginRight: "1rem",
+            }}
+            color="#49a6e9"
+            size="22"
+          />
+          <AiFillInstagram color="#49a6e9" size="28" />
+        </DrawerFooter>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
