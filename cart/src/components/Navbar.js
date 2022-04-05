@@ -48,7 +48,7 @@ const Navbar = () => {
         p: 1,
       }}
       className={classes.appBar}
-      position="fixed"
+      position="sticky"
       elevation={5}
     >
       <Container maxWidth="xl">
