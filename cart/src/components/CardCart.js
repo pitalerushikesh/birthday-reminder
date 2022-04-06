@@ -4,34 +4,34 @@ import React from "react";
 import { BsChevronUp, BsChevronDown } from "react-icons/bs";
 import { useGlobalContext } from "../services/context";
 
-const CardCart = ({ id, prodName, prodPrice, prodImg, prodQuantity }) => {
-  const { removeItem, increaseItem, decreaseItem, toggleAmount } =
-    useGlobalContext();
+const CardCart = ({ id, title, price, img, amount }) => {
+  const { remove, toggleAmount } = useGlobalContext();
   return (
     <Grid
       container
       justifyContent="space-between"
       alignItems="center"
       display="flex"
+      pt={2}
     >
       <Grid item xs={2}>
-        <Box component="img" src={prodImg} alt={prodName} width="90%" />
+        <Box component="img" src={img} alt={title} width="70%" />
       </Grid>
       <Grid item xs={9} flexDirection="column">
-        <Typography variant="h5">{prodName}</Typography>
+        <Typography variant="h5">{title}</Typography>
         <Typography
           sx={{
             color: "#8bbac9",
           }}
         >
-          {prodPrice}
+          {price}
         </Typography>
         <Button
           sx={{
             color: "#82c7f8",
             textTransform: "none",
           }}
-          onClick={() => removeItem(id)}
+          onClick={() => remove(id)}
         >
           remove
         </Button>
@@ -47,7 +47,7 @@ const CardCart = ({ id, prodName, prodPrice, prodImg, prodQuantity }) => {
         <IconButton onClick={() => toggleAmount(id, "inc")}>
           <BsChevronUp />
         </IconButton>
-        {prodQuantity}
+        {amount}
         <IconButton onClick={() => toggleAmount(id, "dec")}>
           <BsChevronDown />
         </IconButton>

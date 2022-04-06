@@ -9,7 +9,7 @@ function App() {
   const { loading } = useGlobalContext();
   if (loading) {
     return (
-      <div className="loading">
+      <div>
         <h1>Loading...</h1>
       </div>
     );

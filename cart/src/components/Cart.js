@@ -1,12 +1,31 @@
-import { Divider, Grid, Typography } from "@mui/material";
+import { Button, Divider, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import CardCart from "./CardCart";
 import { useGlobalContext } from "../services/context";
 
 const Cart = () => {
-  const [cart, total, clearCart] = useGlobalContext();
+  const { cart, total, clearCart } = useGlobalContext();
   console.log("Cart:", cart);
+
+  if (cart.length === 0) {
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        sx={{
+          mt: 4,
+        }}
+      >
+        <Typography variant="h4" fontWeight="bold">
+          Your cart is empty
+        </Typography>
+      </Box>
+    );
+  }
+
   return (
     <Grid
       container
@@ -30,7 +49,7 @@ const Cart = () => {
         item
         xs={12}
         sx={{
-          height: "500px",
+          height: "550px",
         }}
       >
         {cart.map((item) => {
@@ -57,6 +76,31 @@ const Cart = () => {
             ${total}
           </Typography>
         </Box>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        justifyContent="center"
+        alignItems="center"
+        display="flex"
+      >
+        <Button
+          variant="outlined"
+          sx={{
+            color: "#bb2525",
+            borderColor: "#bb2525",
+            px: 4,
+            letterSpacing: "0.2rem",
+            fontWeight: "bold",
+            "&:hover": {
+              backgroundColor: "#e66b6b",
+              borderColor: "#e66b6b",
+            },
+          }}
+          onClick={() => clearCart()}
+        >
+          Clear Cart
+        </Button>
       </Grid>
     </Grid>
   );

@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Button, Grid } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
+import { Grid } from "@mui/material";
 import { GiShoppingBag } from "react-icons/gi";
 import { makeStyles } from "@mui/styles";
 
@@ -19,10 +16,7 @@ const useStyles = makeStyles({
 });
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
   const classes = useStyles();
-
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -32,14 +26,6 @@ const Navbar = () => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   return (
     <AppBar
