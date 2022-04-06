@@ -4,14 +4,17 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { Grid } from "@mui/material";
+import { Badge, Grid } from "@mui/material";
 import { GiShoppingBag } from "react-icons/gi";
 import { makeStyles } from "@mui/styles";
+import { useGlobalContext } from "../services/context";
 
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const useStyles = makeStyles({
   appBar: {
     alignItems: "center",
+  },
+  badge: {
+    fontSize: "1.2rem",
   },
 });
 
@@ -26,7 +29,7 @@ const Navbar = () => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
-
+  const { amount } = useGlobalContext();
   return (
     <AppBar
       sx={{
@@ -83,7 +86,14 @@ const Navbar = () => {
               display="flex"
             >
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <GiShoppingBag size="35" />
+                <Badge
+                  badgeContent={amount}
+                  overlap="circular"
+                  classes={{ badge: classes.badge }}
+                  color="primary"
+                >
+                  <GiShoppingBag size="35" />
+                </Badge>
               </Box>
               <Typography
                 variant="h6"
@@ -98,7 +108,7 @@ const Navbar = () => {
                   color: "#000000",
                 }}
               >
-                Coding
+                UseReducer
               </Typography>
             </Grid>
           </Grid>

@@ -21,10 +21,10 @@ const CardCart = ({ id, title, price, img, amount }) => {
         <Typography variant="h5">{title}</Typography>
         <Typography
           sx={{
-            color: "#8bbac9",
+            color: "#617d98",
           }}
         >
-          {price}
+          ${price}
         </Typography>
         <Button
           sx={{

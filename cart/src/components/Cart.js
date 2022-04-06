@@ -41,8 +41,15 @@ const Cart = () => {
         alignItems="center"
         display="flex"
       >
-        <Typography variant="h2" fontWeight="bold">
-          Your Bag
+        <Typography
+          sx={{
+            mt: 4,
+          }}
+          variant="h3"
+          fontWeight="bold"
+          fontFamily="Open Sans"
+        >
+          YOUR BAG
         </Typography>
       </Grid>
       <Grid

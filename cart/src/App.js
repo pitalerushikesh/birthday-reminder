@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import "./App.css";
 import Cart from "./components/Cart";
@@ -9,11 +9,22 @@ function App() {
   const { loading } = useGlobalContext();
   if (loading) {
     return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        sx={{
+          mt: 8,
+        }}
+      >
+        <Typography variant="h2" fontWeight="bold">
+          Loading...
+        </Typography>
+      </Box>
     );
   }
+
   return (
     <Box
       justifyContent="center"
