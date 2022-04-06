@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
   badge: {
     fontSize: "1.2rem",
+    backgroundColor: "#85c6f4",
   },
 });
 
@@ -90,7 +91,6 @@ const Navbar = () => {
                   badgeContent={amount}
                   overlap="circular"
                   classes={{ badge: classes.badge }}
-                  color="primary"
                 >
                   <GiShoppingBag size="35" />
                 </Badge>
