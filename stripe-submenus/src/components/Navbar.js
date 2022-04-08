@@ -11,6 +11,8 @@ import Menu from "@mui/material/Menu";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { makeStyles } from "@mui/styles";
 import LightTip from "./LightTip";
+import ContentCard from "./ContentCard";
+import data from "./Item";
 
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const useStyles = makeStyles({
@@ -72,7 +74,8 @@ const Navbar = () => {
               <Typography
                 variant="h6"
                 noWrap
-                fontSize="1.7rem"
+                fontSize="2.3rem"
+                fontWeight="bold"
                 component="div"
                 sx={{
                   mr: 1,
@@ -189,48 +192,37 @@ const Navbar = () => {
               display="flex"
             >
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <LightTip>
-                  <Button
-                    key="Home"
-                    sx={{
-                      my: 2,
-                      display: "block",
-                      textTransform: "none",
-                      fontSize: "1.4rem",
-                      letterSpacing: "0.5px",
-                      color: "#ffffff",
-                    }}
-                  >
-                    Products
-                  </Button>
-                </LightTip>
-                <Button
-                  key="Shop"
-                  sx={{
-                    my: 2,
-                    mx: 4,
-                    display: "block",
-                    textTransform: "none",
-                    fontSize: "1.4rem",
-                    letterSpacing: "0.5px",
-                    color: "#ffffff",
-                  }}
-                >
-                  Developers
-                </Button>
-                <Button
-                  key="Blog"
-                  sx={{
-                    my: 2,
-                    display: "block",
-                    textTransform: "none",
-                    fontSize: "1.4rem",
-                    letterSpacing: "0.5px",
-                    color: "#ffffff",
-                  }}
-                >
-                  Company
-                </Button>
+                {data.map((item) => {
+                  return (
+                    <LightTip
+                      content={
+                        <ContentCard
+                          key={item.id}
+                          id={item.id}
+                          title={item.title}
+                          submenu1={item.submenu1}
+                          submenu2={item.submenu2}
+                          submenu3={item.submenu3}
+                          submenu4={item.submenu4}
+                        />
+                      }
+                    >
+                      <Button
+                        key={item.id}
+                        sx={{
+                          my: 2,
+                          display: "block",
+                          textTransform: "none",
+                          fontSize: "1.4rem",
+                          letterSpacing: "0.5px",
+                          color: "#ffffff",
+                        }}
+                      >
+                        {item.title}
+                      </Button>
+                    </LightTip>
+                  );
+                })}
               </Box>
               <Typography
                 variant="h6"

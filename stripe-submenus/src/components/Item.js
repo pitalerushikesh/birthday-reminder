@@ -2,23 +2,23 @@ const Item = [
   {
     id: 1,
     title: "Products",
-    subtitle1: "Payment",
-    subtitle2: "Terminal",
-    subtitle3: "Connect",
+    submenu1: "Payment",
+    submenu2: "Terminal",
+    submenu3: "Connect",
   },
   {
     id: 2,
     title: "Developers",
-    subtitle1: "Plugins",
-    subtitle2: "Libraries",
-    subtitle3: "Help",
-    subtitle4: "Billing",
+    submenu1: "Plugins",
+    submenu2: "Libraries",
+    submenu3: "Help",
+    submenu4: "Billing",
   },
   {
     id: 3,
     title: "Company",
-    subtitle1: "About",
-    subtitle2: "Customers",
+    submenu1: "About",
+    submenu2: "Customers",
   },
 ];
 
