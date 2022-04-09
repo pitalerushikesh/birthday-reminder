@@ -1,14 +1,22 @@
 import { Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Loader from "../components/Loader";
+import { useParams } from "react-router-dom";
 
-import Loading from "../components/Loading";
-import { useParams, Link } from "react-router-dom";
+const Label = ({ name, title }) => {
+  return (
+    <Box display="flex" alignItems="center">
+      <Chip label={title} color="success" sx={{ margin: 1 }} />
+      <Typography>{name}</Typography>
+    </Box>
+  );
+};
 
 const DetailPage = () => {
   const { id } = useParams();
-  const [loading, setLoading] = React.useState(false);
-  const [cocktail, setCocktail] = React.useState(null);
+  const [loading, setLoading] = useState(false);
+  const [cocktail, setCocktail] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -60,7 +68,7 @@ const DetailPage = () => {
     getCocktail();
   }, [id]);
   if (loading) {
-    return <Loading />;
+    return <Loader />;
   }
   if (!cocktail) {
     return <h2 className="section-title">no cocktail to display</h2>;
@@ -70,11 +78,22 @@ const DetailPage = () => {
     return (
       <Container>
         <Grid container>
-          <Grid item xs={6}></Grid>
           <Grid item xs={6}>
-            <Box>
-              <Chip label="Name :" />
-              <Typography>A1</Typography>
+            <Box component="img" src={image} width="80%" />
+          </Grid>
+          <Grid item xs={6}>
+            <Label name={name} title="Name :" />
+            <Label name={category} title="Category :" />
+            <Label name={info} title="info :" />
+            <Label name={glass} title="Glass :" />
+            <Label name={instructions} title="Instructions :" />
+            <Box display="flex" alignItems="center">
+              <Chip label="Ingredients" color="success" sx={{ margin: 1 }} />
+              <Box>
+                {ingredients.map((ingredient, index) => {
+                  return <Typography key={index}>{ingredient}</Typography>;
+                })}
+              </Box>
             </Box>
           </Grid>
         </Grid>

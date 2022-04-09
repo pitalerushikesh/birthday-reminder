@@ -3,7 +3,7 @@ import "./App.css";
 import { useGlobalContext } from "./components/context";
 import Header from "./components/Header";
 import ItemCard from "./components/ItemCard";
-import { Loader } from "./components/Loader";
+import Loader from "./components/Loader";
 import SearchCard from "./components/SearchCard";
 
 function App() {

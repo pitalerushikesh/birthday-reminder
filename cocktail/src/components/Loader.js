@@ -4,7 +4,7 @@ import CircularProgress, {
   circularProgressClasses,
 } from "@mui/material/CircularProgress";
 
-export function Loader(props) {
+export default function Loader(props) {
   return (
     <Box sx={{ position: "relative" }}>
       <CircularProgress

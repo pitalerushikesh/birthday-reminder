@@ -5,8 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
 
 export default function ItemCard({ name, image, info, glass, id }) {
+  const navigate = useNavigate();
   return (
     <Card
       sx={{
@@ -61,6 +63,7 @@ export default function ItemCard({ name, image, info, glass, id }) {
               color: "#476a2e",
             },
           }}
+          onClick={() => navigate(`/detail/${id}`)}
         >
           Details
         </Button>
