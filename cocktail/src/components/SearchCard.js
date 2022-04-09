@@ -1,7 +1,10 @@
 import { Card, CardContent, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { useGlobalContext } from "./context";
 
 const SearchCard = () => {
+  const { setSearchTerm } = useGlobalContext();
+
   return (
     <Card
       elevation={7}
@@ -26,9 +29,9 @@ const SearchCard = () => {
         <TextField
           fullWidth
           size="small"
+          onChange={(e) => setSearchTerm(e.target.value)}
           sx={{
             mt: 4,
-
             backgroundColor: "#f1f5f8",
           }}
         />

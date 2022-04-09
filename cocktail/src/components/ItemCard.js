@@ -12,6 +12,9 @@ export default function ItemCard({ name, image, info, glass, id }) {
       sx={{
         maxWidth: 345,
         mt: 4,
+        "&:hover": {
+          boxShadow: "4px 4px 15px rgba(0, 0, 0, 0.2)",
+        },
       }}
     >
       <CardMedia component="img" height="100%" image={image} alt={name} />
