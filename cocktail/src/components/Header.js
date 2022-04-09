@@ -14,7 +14,7 @@ const Header = () => {
         fontWeight="bold"
         fontFamily="Ubuntu"
       >
-        Grocery Bud
+        Cocktails
       </Typography>
     </Box>
   );
