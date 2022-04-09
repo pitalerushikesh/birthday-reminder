@@ -1,5 +1,5 @@
 import { Card, CardContent, TextField, Typography } from "@mui/material";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { useGlobalContext } from "./context";
 
 const SearchCard = () => {
