@@ -4,6 +4,9 @@ import { Box, Typography } from "@mui/material";
 const Header = ({ title }) => {
   return (
     <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       sx={{
         mb: 2,
       }}
