@@ -1,8 +1,8 @@
-import { Chip, Container, Grid, Typography } from "@mui/material";
+import { Button, Chip, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Label = ({ name, title }) => {
   return (
@@ -17,6 +17,7 @@ const DetailPage = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [cocktail, setCocktail] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -68,7 +69,19 @@ const DetailPage = () => {
     getCocktail();
   }, [id]);
   if (loading) {
-    return <Loader />;
+    return (
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "70vh",
+        }}
+      >
+        <Loader />
+      </Container>
+    );
   }
   if (!cocktail) {
     return <h2 className="section-title">no cocktail to display</h2>;
@@ -77,6 +90,44 @@ const DetailPage = () => {
       cocktail;
     return (
       <Container>
+        <Box
+          justifyContent="center"
+          alignItems="center"
+          display="flex"
+          sx={{
+            my: 4,
+          }}
+        >
+          <Button
+            sx={{
+              backgroundColor: "#476a2e",
+              color: "#ffffff",
+              px: 2,
+              py: 0.5,
+              "&:hover": {
+                backgroundColor: "#d4e6a5",
+                color: "#476a2e",
+              },
+            }}
+            onClick={() => navigate("/")}
+          >
+            Back Home
+          </Button>
+        </Box>
+        <Box
+          sx={{
+            my: 4,
+          }}
+        >
+          <Typography
+            textAlign="center"
+            fontSize="2.5rem"
+            fontWeight="bold"
+            fontFamily="Ubuntu"
+          >
+            {name}
+          </Typography>
+        </Box>
         <Grid container>
           <Grid item xs={6}>
             <Box component="img" src={image} width="80%" />
@@ -89,9 +140,11 @@ const DetailPage = () => {
             <Label name={instructions} title="Instructions :" />
             <Box display="flex" alignItems="center">
               <Chip label="Ingredients" color="success" sx={{ margin: 1 }} />
-              <Box>
+              <Box display="flex">
                 {ingredients.map((ingredient, index) => {
-                  return <Typography key={index}>{ingredient}</Typography>;
+                  return (
+                    <Typography key={index}>{ingredient},&nbsp;</Typography>
+                  );
                 })}
               </Box>
             </Box>

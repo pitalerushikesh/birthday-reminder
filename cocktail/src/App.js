@@ -19,7 +19,6 @@ function App() {
         }}
       >
         <SearchCard />
-
         <Loader />
       </Container>
     );

@@ -8,8 +8,8 @@ export default function Chip() {
           borderRadius: "3px",
         },
         colorSuccess: {
-          backgroundColor: "#d4ffe5",
-          color: "#085b0e",
+          backgroundColor: "#d4e6a5",
+          color: "#476a2e",
         },
         colorPrimary: {
           backgroundColor: "#b2e5ed",
