@@ -1,4 +1,4 @@
-import { Button, Card, Typography } from "@mui/material";
+import { Button, Card, Container, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState, useCallback, useMemo } from "react";
 import { useFetch } from "../services/useFetch";
@@ -34,15 +34,17 @@ const CallMemo = () => {
     [products]
   );
   return (
-    <>
-      <Header title="Count" />: {count}
-      <Button className="btn" onClick={() => setCount(count + 1)}>
-        click me
-      </Button>
-      <Header title="Cart" />: ${cart}
-      <Header title="Most expensive" />: ${mostExpensive}
+    <Container>
+      <Header
+        title="Count : "
+        value={count}
+        text="Click Me"
+        onClick={() => setCount(count + 1)}
+      />
+      <Header title="Cart : " value={cart} />
+      <Header title="Most expensive : " value={mostExpensive} />
       <BigList products={products} addToCart={addToCart} />
-    </>
+    </Container>
   );
 };
 
@@ -52,17 +54,19 @@ const BigList = React.memo(({ products, addToCart }) => {
   // });
 
   return (
-    <Box>
+    <Grid container>
       {products.map((product) => {
         return (
-          <SingleProduct
-            key={product.id}
-            {...product}
-            addToCart={addToCart}
-          ></SingleProduct>
+          <Grid item xs={4}>
+            <SingleProduct
+              key={product.id}
+              {...product}
+              addToCart={addToCart}
+            ></SingleProduct>
+          </Grid>
         );
       })}
-    </Box>
+    </Grid>
   );
 });
 
@@ -75,11 +79,41 @@ const SingleProduct = ({ fields, addToCart }) => {
   //   console.count('hello from product');
   // });
   return (
-    <Card>
-      <Box component="img" src={image} alt={name} />
-      <Typography>{name}</Typography>
-      <Typography>${price}</Typography>
-      <Button onClick={addToCart}>Add to Cart</Button>
+    <Card
+      sx={{
+        m: 2,
+      }}
+    >
+      <Box
+        component="img"
+        src={image}
+        width="500px"
+        height="350px"
+        alt={name}
+      />
+      <Typography textTransform="uppercase" variant="h6" fontWeight="bold">
+        {name}
+      </Typography>
+      <Typography
+        sx={{
+          my: 1,
+        }}
+      >
+        ${price}
+      </Typography>
+      <Button
+        sx={{
+          backgroundColor: "#46a0e2",
+          color: "#ffffff",
+          "&:hover": {
+            color: "#46a0e2",
+            backgroundColor: "#000000",
+          },
+        }}
+        onClick={addToCart}
+      >
+        Add to Cart
+      </Button>
     </Card>
   );
 };
