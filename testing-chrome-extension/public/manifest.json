@@ -4,8 +4,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "action":{
-    "default_title":"Vocabulary",
-    "default_popup":"index.html"
+    "default_title":"Vocabulary"
   },
   "background": {
     "service_worker": "background.js"
