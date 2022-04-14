@@ -1,0 +1,25 @@
+{
+  "name": "Vocabulary",
+  "description": "Vocabulary Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action":{
+    "default_title":"Vocabulary",
+    "default_popup":"index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Opens index.html"
+    }
+  }
+}
